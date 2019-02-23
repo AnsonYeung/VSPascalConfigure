@@ -1,0 +1,1 @@
+fpc %1.pas && start %1

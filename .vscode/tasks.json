@@ -1,0 +1,73 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Pascal Build",
+            "type": "shell",
+            "command": "fpc",
+            "group": "build",
+            "args": [
+                ".\\VSPascalConfigure.pas"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": {
+                "owner": "external",
+                "pattern": {
+                    "regexp": "^([\\w]+\\.(p|pp|pas))\\((\\d+)\\,(\\d+)\\)\\s(Fatal|Error|Warning|Note):(.*)",
+                    "file": 1,
+                    "line": 3,
+                    "column": 4,
+                    "severity": 5,
+                    "message": 6
+                }
+            }
+        },
+        {
+            "label": "Pascal Run",
+            "type": "shell",
+            "command": "start",
+            "group": "build",
+            "args": [
+                ".\\VSPascalConfigure"                
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Pascal Build and Run",
+            "group": "build",
+            "dependsOn": ["Pascal Build", "Pascal Run"]
+        },
+        {
+            "label": "Build and run (Pascal)",
+            "type": "shell",
+            "command": "build",
+            "group": "build",
+            "args": [
+                ".\\VSPascalConfigure"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": {
+                "owner": "external",
+                "pattern": {
+                    "regexp": "^([\\w]+\\.(p|pp|pas))\\((\\d+)\\,(\\d+)\\)\\s(Fatal|Error|Warning|Note):(.*)",
+                    "file": 1,
+                    "line": 3,
+                    "column": 4,
+                    "severity": 5,
+                    "message": 6
+                }
+            }
+        }
+    ]
+}
